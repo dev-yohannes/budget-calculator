@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --income-color: rgb(64, 192, 235);
+  --expense-color: crimson;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
+}
+
+.parent {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-container {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  height: 300px;
+}
+
+.total-budget {
+  font-size: 50px;
+}
+
+.income-bar,
+.expense-bar {
+  /* border: 1px solid black; */
+  width: 300px;
+  margin: 5px 0px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income-bar span,
+.expense-bar span {
+  display: flex;
+  gap: 5px;
+  color: white;
+}
+
+.income-bar {
+  background-color: var(--income-color);
+}
+
+.expense-bar {
+  background-color: var(--expense-color);
+}
+
+.input-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+}
+
+.input-values input,
+.input-values select {
+  height: 35px;
+  padding-left: 2px;
+}
+
+.check-icon {
+  width: 2%;
+  cursor: pointer;
+}
+
+.budget-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.income-section,
+.expense-section {
+  padding: 10px;
+  width: 300px;
+}
+
+.income-section-p,
+.income-value-span {
+  color: var(--income-color);
+}
+
+.expense-section-p,
+.expense-value-span {
+  color: var(--expense-color);
+}
+
+.income-section li,
+.expense-section li {
+  margin-top: 5px;
+  width: 250px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
