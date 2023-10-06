@@ -18,19 +18,10 @@ const expenseSectionUl = document.querySelector("#expense-section-ul");
 
 // arrays
 const incomeArray = [];
-let incomeSum = 0;
 
 const expenseArray = [];
-let expenseSum = 0;
 
 // function
-const addingValueToBars = () => {
-  if (select.value == 1) {
-    incomeNumber.innerHTML = valueInput.value;
-  } else {
-    expenseNumber.innerHTML = valueInput.value;
-  }
-};
 
 const addingToBudgetList = () => {
   if (descriptionInput.value === "" || valueInput.value === "") {
@@ -58,20 +49,37 @@ const addingToBudgetList = () => {
   }
 };
 
-const addingArrayValues = () => {
+// loop
+const addingIncomeArrayValues = () => {
+  incomeSum = 0;
   for (let i = 0; i < incomeArray.length; i++) {
-    incomeSum += incomeArray[i];
-    // if (incomeArray.length === 0) {
-    //   console.log("empty array");
-    // } else {
-    // }
+    incomeSum = incomeSum + incomeArray[i];
+  }
+};
+
+const addingExpenseArrayValues = () => {
+  let expenseSum = 0;
+  for (let i = 0; i < expenseArray.length; i++) {
+    expenseSum = expenseSum + expenseArray[i];
+  }
+};
+
+// adding array sum to budget bar
+const addingValueToBars = () => {
+  if (select.value == 1) {
+    incomeNumber.innerHTML = incomeSum;
+  } else {
+    expenseNumber.innerHTML = expenseSum;
   }
 };
 
 const finalCalledFunctions = () => {
-  addingValueToBars();
   addingToBudgetList();
-  console.log(incomeSum);
+  addingIncomeArrayValues();
+  console.log("income sum", incomeSum);
+  addingExpenseArrayValues();
+  console.log("expense sum", expenseSum);
+  addingValueToBars();
   descriptionInput.value = "";
   valueInput.value = "";
 };
@@ -87,11 +95,3 @@ document.addEventListener("keypress", (e) => {
     finalCalledFunctions();
   }
 });
-
-// select.addEventListener("change", () => {
-//   if (select.value == 1) {
-//     console.log("changed to income");
-//   } else {
-//     console.log("changed to expense");
-//   }
-// });
