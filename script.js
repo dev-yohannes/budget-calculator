@@ -60,18 +60,18 @@ const addingToBudgetList = () => {
 
 const addingArrayValues = () => {
   for (let i = 0; i < incomeArray.length; i++) {
-    if (incomeArray.length === 0) {
-      console.log("empty array");
-    } else {
-      incomeSum += incomeArray[i];
-    }
+    incomeSum += incomeArray[i];
+    // if (incomeArray.length === 0) {
+    //   console.log("empty array");
+    // } else {
+    // }
   }
 };
 
 const finalCalledFunctions = () => {
   addingValueToBars();
   addingToBudgetList();
-  console.log(addingArrayValues());
+  console.log(incomeSum);
   descriptionInput.value = "";
   valueInput.value = "";
 };
