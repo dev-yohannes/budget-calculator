@@ -16,13 +16,19 @@ const expenseValueSpan = document.querySelector("#expense-value-span");
 const incomeSectionUl = document.querySelector("#income-section-ul");
 const expenseSectionUl = document.querySelector("#expense-section-ul");
 
+// arrays
+const incomeArray = [];
+let incomeSum = 0;
+
+const expenseArray = [];
+let expenseSum = 0;
+
 // function
 const addingValueToBars = () => {
   if (select.value == 1) {
-    incomeNumber.textContent = valueInput.value;
-    budgetTotal.textContent = valueInput.value;
+    incomeNumber.innerHTML = valueInput.value;
   } else {
-    expenseNumber.textContent = valueInput.value;
+    expenseNumber.innerHTML = valueInput.value;
   }
 };
 
@@ -37,6 +43,8 @@ const addingToBudgetList = () => {
         <span id="income-value-span" class="income-value-span">${valueInput.value}</span>
     `;
       incomeSectionUl.appendChild(incomeDescriptionLi);
+      incomeArray.push(Number(valueInput.value));
+      console.log(incomeArray, "income array");
     } else if (select.value == 2) {
       const expenseDescriptionLi = document.createElement("li");
       expenseDescriptionLi.innerHTML = `
@@ -44,17 +52,40 @@ const addingToBudgetList = () => {
         <span id="expense-value-span" class="expense-value-span">${valueInput.value}</span>
     `;
       expenseSectionUl.appendChild(expenseDescriptionLi);
+      expenseArray.push(Number(valueInput.value));
+      console.log(expenseArray, "expense array");
     }
   }
+};
+
+const addingArrayValues = () => {
+  for (let i = 0; i < incomeArray.length; i++) {
+    if (incomeArray.length === 0) {
+      console.log("empty array");
+    } else {
+      incomeSum += incomeArray[i];
+    }
+  }
+};
+
+const finalCalledFunctions = () => {
+  addingValueToBars();
+  addingToBudgetList();
+  console.log(addingArrayValues());
+  descriptionInput.value = "";
+  valueInput.value = "";
 };
 
 // events
 
 checkIcon.addEventListener("click", () => {
-  // addingValueToBars();
-  // calculatingValues();
+  finalCalledFunctions();
+});
 
-  addingToBudgetList();
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    finalCalledFunctions();
+  }
 });
 
 // select.addEventListener("change", () => {
