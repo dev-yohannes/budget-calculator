@@ -107,6 +107,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.income-section li:nth-child(1),
+.expense-section li:nth-child(1) {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
