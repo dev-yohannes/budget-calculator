@@ -110,3 +110,35 @@
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
+
+@media (max-width: 576px) {
+  .parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+  }
+
+  .top-container {
+    width: 100%;
+  }
+
+  .input-values {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .input-values .check-icon {
+    width: 30px;
+  }
+
+  .budget-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+}
