@@ -1,4 +1,4 @@
-let budgetTotal = document.querySelector("#total-budget");
+const budgetTotal = document.querySelector("#total-budget");
 const incomeNumber = document.querySelector("#income-number");
 const expenseNumber = document.querySelector("#expense-number");
 const select = document.querySelector("#select");
@@ -16,8 +16,7 @@ const expenseValueSpan = document.querySelector("#expense-value-span");
 const incomeSectionUl = document.querySelector("#income-section-ul");
 const expenseSectionUl = document.querySelector("#expense-section-ul");
 
-// function
-
+// adding description and and value to budget list
 const addingToBudgetList = () => {
   if (descriptionInput.value === "" || valueInput.value === "") {
     alert("Fill the inputs");
@@ -32,7 +31,6 @@ const addingToBudgetList = () => {
     `;
       incomeSectionUl.appendChild(incomeDescriptionLi);
       incomeArray.push(Number(valueInput.value));
-      // console.log(incomeArray, "income array");
     } else if (select.value == 2) {
       const expenseDescriptionLi = document.createElement("li");
       expenseDescriptionLi.innerHTML = `
@@ -43,18 +41,18 @@ const addingToBudgetList = () => {
     `;
       expenseSectionUl.appendChild(expenseDescriptionLi);
       expenseArray.push(Number(valueInput.value));
-      // console.log(expenseArray, "expense array");
     }
   }
 };
 
-// loop
+// looping through the array and adding them
 const incomeArray = [];
 const expenseArray = [];
 
 const addingArrayValuesAddingToBars = () => {
   incomeSum = 0;
   expenseSum = 0;
+
   // income loop
   for (let i = 0; i < incomeArray.length; i++) {
     incomeSum = incomeSum + incomeArray[i];
@@ -65,7 +63,7 @@ const addingArrayValuesAddingToBars = () => {
     expenseSum = expenseSum + expenseArray[i];
   }
 
-  // adding to bar
+  // adding values to bar
   if (select.value == 1) {
     incomeNumber.innerHTML = incomeSum.toLocaleString("en-US");
   } else {
@@ -78,21 +76,17 @@ const updateBudgetTotal = () => {
   budgetTotal.innerHTML = Number(incomeSum - expenseSum).toLocaleString(
     "en-US"
   );
-  // console.log("budget total", budgetTotal);
 };
 
 const finalCalledFunctions = () => {
   addingToBudgetList();
   addingArrayValuesAddingToBars();
   updateBudgetTotal();
-  // console.log("income sum", incomeSum);
-  // console.log("expense sum", expenseSum);
   descriptionInput.value = "";
   valueInput.value = "";
 };
 
 // events
-
 checkIcon.addEventListener("click", () => {
   finalCalledFunctions();
 });
