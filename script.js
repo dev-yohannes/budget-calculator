@@ -26,7 +26,9 @@ const addingToBudgetList = () => {
       const incomeDescriptionLi = document.createElement("li");
       incomeDescriptionLi.innerHTML = `
         <span id="income-description-span">${descriptionInput.value}</span>
-        <span id="income-value-span" class="income-value-span">${valueInput.value}</span>
+        <span id="income-value-span" class="income-value-span">${Number(
+          valueInput.value
+        ).toLocaleString("en-US")}</span>
     `;
       incomeSectionUl.appendChild(incomeDescriptionLi);
       incomeArray.push(Number(valueInput.value));
@@ -35,7 +37,9 @@ const addingToBudgetList = () => {
       const expenseDescriptionLi = document.createElement("li");
       expenseDescriptionLi.innerHTML = `
         <span id="income-description-span">${descriptionInput.value}</span>
-        <span id="expense-value-span" class="expense-value-span">${valueInput.value}</span>
+        <span id="expense-value-span" class="expense-value-span">${Number(
+          valueInput.value
+        ).toLocaleString("en-US")}</span>
     `;
       expenseSectionUl.appendChild(expenseDescriptionLi);
       expenseArray.push(Number(valueInput.value));
@@ -63,15 +67,17 @@ const addingArrayValuesAddingToBars = () => {
 
   // adding to bar
   if (select.value == 1) {
-    incomeNumber.innerHTML = incomeSum;
+    incomeNumber.innerHTML = incomeSum.toLocaleString("en-US");
   } else {
-    expenseNumber.innerHTML = expenseSum;
+    expenseNumber.innerHTML = expenseSum.toLocaleString("en-US");
   }
 };
 
 // updating budget total
 const updateBudgetTotal = () => {
-  budgetTotal.innerHTML = incomeSum - expenseSum;
+  budgetTotal.innerHTML = Number(incomeSum - expenseSum).toLocaleString(
+    "en-US"
+  );
   // console.log("budget total", budgetTotal);
 };
 
