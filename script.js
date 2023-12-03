@@ -4,7 +4,7 @@ const expenseNumber = document.querySelector("#expense-number");
 const select = document.querySelector("#select");
 const descriptionInput = document.querySelector("#description");
 const valueInput = document.querySelector("#number-input");
-const checkIcon = document.querySelector(".check-icon");
+const checkIcon = document.querySelector(".add-icon");
 const incomeDescriptionSpan = document.querySelector(
   "#income-description-span"
 );
