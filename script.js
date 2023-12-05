@@ -27,20 +27,50 @@ const addingToBudgetList = () => {
         <span id="income-description-span">${descriptionInput.value}</span>
         <span id="income-value-span" class="income-value-span">${Number(
           valueInput.value
-        ).toLocaleString("en-US")}</span>
+        ).toLocaleString(
+          "en-US"
+        )}<i class="remove-icon fa-solid fa-xmark"></i></span>
     `;
       incomeSectionUl.appendChild(incomeDescriptionLi);
       incomeArray.push(Number(valueInput.value));
+
+      const removeIcon = incomeDescriptionLi.querySelector(".remove-icon");
+      removeIcon.addEventListener("click", () => {
+        incomeDescriptionLi.display = false;
+        console.log("hello");
+      });
+
+      incomeDescriptionLi.addEventListener("mouseenter", () => {
+        const removeIcon = incomeDescriptionLi.querySelector(".remove-icon");
+        removeIcon.style.display = "inline-block";
+      });
+
+      incomeDescriptionLi.addEventListener("mouseleave", () => {
+        const removeIcon = incomeDescriptionLi.querySelector(".remove-icon");
+        removeIcon.style.display = "none";
+      });
     } else if (select.value == 2) {
       const expenseDescriptionLi = document.createElement("li");
       expenseDescriptionLi.innerHTML = `
         <span id="income-description-span">${descriptionInput.value}</span>
         <span id="expense-value-span" class="expense-value-span">${Number(
           valueInput.value
-        ).toLocaleString("en-US")}</span>
+        ).toLocaleString(
+          "en-US"
+        )}<i class="remove-icon fa-solid fa-xmark"></i></span>
     `;
       expenseSectionUl.appendChild(expenseDescriptionLi);
       expenseArray.push(Number(valueInput.value));
+
+      expenseDescriptionLi.addEventListener("mouseenter", () => {
+        const removeIcon = expenseDescriptionLi.querySelector(".remove-icon");
+        removeIcon.style.display = "inline-block";
+      });
+
+      expenseDescriptionLi.addEventListener("mouseleave", () => {
+        const removeIcon = expenseDescriptionLi.querySelector(".remove-icon");
+        removeIcon.style.display = "none";
+      });
     }
   }
 };
