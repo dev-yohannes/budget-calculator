@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --income-color: rgb(40, 185, 181);
+  --expense-color: rgb(255, 80, 73);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
+}
+
+.parent {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(166, 166, 166);
+  height: 300px;
+
+  h2 {
+    color: white;
+  }
+}
+
+.total-budget {
+  font-size: 50px;
+}
+
+.income-bar,
+.expense-bar {
+  /* border: 1px solid black; */
+  width: 350px;
+  margin: 5px 0px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income-bar span,
+.expense-bar span {
+  display: flex;
+  gap: 5px;
+  color: white;
+}
+
+.income-bar {
+  background-color: var(--income-color);
+}
+
+.expense-bar {
+  background-color: var(--expense-color);
+}
+
+.input-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  background-color: rgb(247, 247, 247);
+  border: 1px solid lightgray;
+
+  select {
+    height: 35px;
+    padding-left: 5px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+  }
+
+  input {
+    height: 35px;
+    padding-left: 5px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    max-width: 300px;
+  }
+
+  .description {
+    width: 400px;
+  }
+
+  .number-input {
+    width: 100px;
+  }
+}
+
+.check-icon {
+  width: 2%;
+  cursor: pointer;
+}
+
+.budget-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.income-section,
+.expense-section {
+  padding: 10px;
+  width: 300px;
+}
+
+.income-section-p,
+.expense-section-p {
+  font-size: 20px;
+}
+
+.income-section-p,
+.income-value-span {
+  color: var(--income-color);
+}
+
+.expense-section-p,
+.expense-value-span {
+  color: var(--expense-color);
+}
+
+.remove-icon {
+  display: none;
+  margin-left: 10px;
+  color: red;
+  transition: all 0.3s;
+}
+
+.income-section li,
+.expense-section li {
+  /* margin-top: 5px; */
+  /* max-width: 100%; */
+  width: 400px;
+  padding: 10px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.income-section li:nth-child(1),
+.expense-section li:nth-child(1) {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.income-section li:nth-child(even),
+.expense-section li:nth-child(even) {
+  background-color: rgb(247, 242, 242);
+}
+
+@media (max-width: 576px) {
+  .top-container {
+    width: 100%;
+    padding: 30px;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .input-values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* flex-wrap: wrap; */
+  }
+
+  .income-section li,
+  .expense-section li {
+    max-width: 100%;
+  }
+
+  .input-values .add-icon {
+    /* width: 30px; */
+    margin-top: 10px;
+  }
+
+  .budget-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
